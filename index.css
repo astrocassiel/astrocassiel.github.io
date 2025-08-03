@@ -611,3 +611,15 @@ body:not(.user-is-tabbing) a:focus {
         padding: var(--gutter-medium) 0;
     } 
 }
+/* --------------------------------------- */
+/* ----- Embedded Videos for Work Section ----- */
+/* --------------------------------------- */
+
+.work__image-box video,
+.work__image-box iframe {
+    width: 100%;
+    max-height: 360px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
