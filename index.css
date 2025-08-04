@@ -622,3 +622,45 @@ body:not(.user-is-tabbing) a:focus {
     object-fit: cover;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
+
+/* --- Table of Contents Section --- */
+.toc {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.toc__tiles {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.toc__tile {
+  width: 300px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.toc__tile:hover {
+  transform: scale(1.03);
+}
+
+.toc__tile img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.toc__label {
+  padding: 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  background-color: #fff;
+}
