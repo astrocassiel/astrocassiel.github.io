@@ -3,40 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Internship experiences </title>
+  <title>Internship Experiences | Gala Cassiel Solis</title>
   <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
-  <!-- ***** Header with Centered Title ***** -->
-  <header class="header">
+
+  <!-- ***** Subpage Navigation Header ***** -->
+  <header class="header header--subpage" role="banner" id="top">
     <div class="row">
-      <div class="header__text-box">
-        <div class="header__text">
-          <h1 class="heading-primary">
-            <span>Internship Experiences</span>
-          </h1>
-          <p>Roles in aerospace, government, and research labs that shaped my journey in advanced manufacturing.</p>
-        </div>
-      </div>
+      <nav class="nav" role="navigation">
+        <ul class="nav__items">
+          <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="phd-research.html" class="nav__link">PhD Thesis</a></li>
+          <li class="nav__item"><a href="internships.html" class="nav__link">Work Experience</a></li>
+          <li class="nav__item"><a href="personal-projects.html" class="nav__link">Personal Projects</a></li>
+          <li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li>
+          <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
+
+  <!-- ***** Subpage Intro ***** -->
+  <section class="subpage-hero">
+    <div class="row">
+      <div class="subpage-hero__content">
+        <h1 class="subpage-hero__title">Internship Experiences</h1>
+        <p class="subpage-hero__text">
+          Roles across aerospace, government, and research laboratories that shaped my path in additive manufacturing, thermal monitoring, and engineering design.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <main>
     <section class="work" id="work">
       <div class="row">
         <h2>Internships & Appointments</h2>
+
         <div class="work__boxes">
 
           <div class="work__box">
             <div class="work__text">
-              <h3>NASA Marshall Space Flight Center </h3>
+              <h3>NASA Marshall Space Flight Center</h3>
+              <p>June 2025 – Present | Huntsville, AL</p>
               <p>
-                June 2025 - Present | Huntsville, AL
-              <p>
-              <p>
-                Applied two-color thermography for melt pool monitoring on NASA's Cold Metal Transfer (CMT) WAAM system for Inconel 718 and Aluminum alloys. 
-                Assisted with process monitoring on other DED systems using regolith simulants.
+                Applied two-color thermography for melt pool monitoring on NASA’s Cold Metal Transfer (CMT) WAAM system for Inconel 718 and aluminum alloys. Assisted with process monitoring on additional directed energy deposition systems using regolith simulants.
               </p>
               <ul class="work__list">
                 <li>In-Situ Thermal Monitoring</li>
@@ -54,10 +67,8 @@
 
           <div class="work__box">
             <div class="work__text">
-              <h3>The Aerospace Corporation (Summer 2022)</h3>
-              <p>
-                June 2022 - August 2022 | El Segundo, CA
-              <p>
+              <h3>The Aerospace Corporation</h3>
+              <p>June 2022 – August 2022 | El Segundo, CA</p>
               <p>
                 Captured in-situ temperature data on powder-fed DED parts to study porosity and hardness. Conducted metallography and correlated PDAS, SDAS, and porosity with thermal signatures.
               </p>
@@ -71,13 +82,11 @@
               <img src="./images/aerospace-corp.jpg" class="work__image" alt="The Aerospace Corporation" />
             </div>
           </div>
-          
+
           <div class="work__box">
             <div class="work__text">
-              <h3>Massachussetts Institute of Technology Lincoln Laboratory </h3>
-              <p>
-                January 2022 - May 2022 | Lexington, MA
-              <p>
+              <h3>MIT Lincoln Laboratory</h3>
+              <p>January 2022 – May 2022 | Lexington, MA</p>
               <p>
                 Assisted in CubeSat deployment hardware testing under thermal extremes. Created and validated designs for launch survivability.
               </p>
@@ -91,15 +100,13 @@
               <img src="./images/mit-ll.jpg" class="work__image" alt="MIT Lincoln Laboratory" />
             </div>
           </div>
-          
+
           <div class="work__box">
             <div class="work__text">
-              <h3>Launcher (acquired by VAST) </h3>
+              <h3>Launcher (acquired by Vast)</h3>
+              <p>May 2021 – August 2021 | Hawthorne, CA</p>
               <p>
-                May 2021 - August 2021 | Hawthorne, CA
-              <p>
-              <p>
-                Operated VELO3D LPBF machine and designed thermal channels for the Orbiter engine. Created PLA gimbal mockups for payload deployment.
+                Operated a VELO3D LPBF system and supported thermal channel design for the Orbiter engine. Created PLA gimbal mockups for payload deployment concepts.
               </p>
               <ul class="work__list">
                 <li>VELO3D LPBF Operations</li>
@@ -114,52 +121,35 @@
 
           <div class="work__box">
             <div class="work__text">
-              <h3>KCNSC Honeywell FM&T – Summer 2020</h3>
+              <h3>KCNSC Honeywell FM&amp;T</h3>
+              <p>June 2020 – August 2020 | Kansas City, MO</p>
               <p>
-                June 2020 - August 2020 | Kansas City, MO
-              <p>
-              <p>
-                Designed fastening tools for LPBF manufacturing and evaluated surface roughness changes with profilometry. Co-authored AM machinability documentation.
+                Designed fastening tools for LPBF manufacturing and evaluated surface roughness changes using profilometry. Contributed to additive manufacturing machinability documentation.
               </p>
               <ul class="work__list">
                 <li>LPBF Tool Design</li>
-                <li>Deburr & Profilometry</li>
+                <li>Deburr &amp; Profilometry</li>
                 <li>Process Documentation</li>
               </ul>
             </div>
-<!--             <div class="work__image-box">
-              <img src="./images/honeywell.jpg" class="work__image" alt="Honeywell FM&T" />
-            </div> -->
           </div>
 
           <div class="work__box">
             <div class="work__text">
               <h3>NASA Marshall Space Flight Center</h3>
+              <p>January 2020 – May 2020 | Huntsville, AL</p>
               <p>
-                January 2020 - May 2020 | Huntsville, AL
-              <p>
-              <p>
-                description
+                Add your project summary here once you are ready. You can mirror the style of the other entries with 1–2 concise sentences on the system, your role, and technical impact.
               </p>
-              <ul class="work__list">
-<!--                 <li>Propulsion Systems</li>
-                <li>Thermal Analysis</li>
-                <li>Risk Evaluation</li> -->
-              </ul>
             </div>
-<!--             <div class="work__image-box">
-              <img src="./images/nasa-glenn.jpg" class="work__image" alt="NASA Glenn" />
-            </div> -->
           </div>
-          
+
           <div class="work__box">
             <div class="work__text">
               <h3>NASA Glenn Research Center</h3>
+              <p>June 2019 – August 2019 | Cleveland, OH</p>
               <p>
-                June 2019 - August 2019 | Cleveland, OH
-              <p>
-              <p>
-                Analyzed thermal performance of propulsion components and contributed to safety documentation for manned space missions.
+                Analyzed thermal performance of propulsion components and contributed to safety documentation for crewed spaceflight-related systems.
               </p>
               <ul class="work__list">
                 <li>Propulsion Systems</li>
@@ -167,37 +157,23 @@
                 <li>Risk Evaluation</li>
               </ul>
             </div>
-<!--             <div class="work__image-box">
-              <img src="./images/nasa-glenn.jpg" class="work__image" alt="NASA Glenn" />
-            </div> -->
           </div>
-          
+
           <div class="work__box">
             <div class="work__text">
               <h3>NASA Marshall Space Flight Center</h3>
+              <p>January 2019 – May 2019 | Huntsville, AL</p>
               <p>
-                January 2019 - May 2019 | Huntsville, AL
-              <p>
-              <p>
-                description
+                Add your project summary here once you are ready. This can be updated later to match the style of the rest of the page.
               </p>
-              <ul class="work__list">
-<!--                 <li>Propulsion Systems</li>
-                <li>Thermal Analysis</li>
-                <li>Risk Evaluation</li> -->
-              </ul>
             </div>
-<!--             <div class="work__image-box">
-              <img src="./images/nasa-glenn.jpg" class="work__image" alt="NASA Glenn" />
-            </div> -->
           </div>
-          
+
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ***** Footer ***** -->
   <footer class="footer">
     <div class="row">
       <p>
@@ -206,5 +182,6 @@
       </p>
     </div>
   </footer>
+
 </body>
 </html>
