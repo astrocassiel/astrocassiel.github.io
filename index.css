@@ -442,17 +442,17 @@ body:not(.user-is-tabbing) a:focus {
 .work__box {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 6rem;
 }
 
-@media(max-width: 900px) {
-    .work__box {
-        align-items: initial;
-        flex-direction: column-reverse;
-    }
+/* alternate layout (image left / text right every other section) */
+.work__box:nth-child(even) {
+    flex-direction: row-reverse;
 }
 
 .work__box:not(:last-child) {
-    margin-bottom: 25rem;
+    margin-bottom: 12rem;
 }
 
 @media(max-width: 500px) {
@@ -467,7 +467,8 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .work__text {
-    flex: 0 0 30%;
+    flex: 1;
+    max-width: 500px;
 }
 
 .work__list {
@@ -488,6 +489,7 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .work__image-box {
+    flex: 1;
     margin-bottom: var(--gutter-normal);
 }
 
