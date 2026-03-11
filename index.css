@@ -132,7 +132,7 @@ h3 {
     font-weight: 400;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
     .heading-primary {
         font-size: 6.5rem;
     }
