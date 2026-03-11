@@ -572,29 +572,41 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .subpage-hero {
-    padding: 8rem 0 6rem 0;
+    padding: 7rem 0 5rem 0;
     border-bottom: var(--border-light);
+    background: var(--black);
 }
 
 .subpage-hero__content {
-    max-width: 900px;
+    max-width: 950px;
+    margin: 0 auto;
+    display: block;
 }
 
 .subpage-hero__title {
+    display: block;
+    font-family: 'Jost', sans-serif;
     font-size: clamp(3.2rem, 5vw, 5.5rem);
-    margin-bottom: 2rem;
     line-height: 1.1;
     color: var(--white);
+    margin: 0 0 2rem 0;
 }
 
 .subpage-hero__text {
+    display: block;
     font-size: var(--font-size-medium);
+    color: var(--white-1);
     max-width: 850px;
+    margin: 0;
 }
 
 @media (max-width: 600px) {
     .subpage-hero {
-        padding: 6rem 0 5rem 0;
+        padding: 5rem 0 4rem 0;
+    }
+
+    .subpage-hero__title {
+        font-size: 3.2rem;
     }
 
     .subpage-hero__text {
