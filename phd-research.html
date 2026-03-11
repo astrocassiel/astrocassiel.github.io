@@ -8,135 +8,143 @@
 </head>
 
 <body>
-  <!-- ***** Header with Centered Title ***** -->
-  <header class="header">
+
+  <!-- ***** Subpage Navigation Header ***** -->
+  <header class="header header--subpage" role="banner" id="top">
     <div class="row">
-      <div class="header__text-box">
-        <div class="header__text">
-          <h2 class="heading-primary">
-            <span>PhD Research | Carnegie Mellon University, Department of Mechianical Engineering </span>
-          </h2>
-          <p>My doctoral research explores how <strong>two-color thermography</strong> can be used as a scalable sensing framework for metal additive manufacturing. Rather than relying on extensive instrumentation, this approach uses a single commercial camera to extract multiple process outputs of interest—such as melt pool temperature, cooling rate, thermal gradients, and geometric features—creating a path toward <strong>multi-output feedback control with minimal sensing inputs</strong>.</p>
-        </div>
-      </div>
+      <nav class="nav" role="navigation">
+        <ul class="nav__items">
+          <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="phd-research.html" class="nav__link">PhD Thesis</a></li>
+          <li class="nav__item"><a href="internships.html" class="nav__link">Internships</a></li>
+          <li class="nav__item"><a href="personal-projects.html" class="nav__link">Personal Projects</a></li>
+          <li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li>
+          <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-<main>
-  <!-- ***** Doctoral Thesis Section ***** -->
-  <section class="work" id="work">
+  <!-- ***** Subpage Intro ***** -->
+  <section class="subpage-hero">
     <div class="row">
-      <h2>Doctoral Thesis</h2>
-
-      <!-- Main takeaway / intro narrative -->
-      <div class="work__text" style="max-width: 900px; margin: 0 auto 3.5rem auto; text-align: left;">
-        <p>
+      <div class="subpage-hero__content">
+        <h1 class="subpage-hero__title">
+          PhD Research | Carnegie Mellon University, Department of Mechanical Engineering
+        </h1>
+        <p class="subpage-hero__text">
           My doctoral research explores how <strong>two-color thermography</strong> can be used as a scalable sensing framework for metal additive manufacturing. Rather than relying on extensive instrumentation, this approach uses a single commercial camera to extract multiple process outputs of interest—such as melt pool temperature, cooling rate, thermal gradients, and geometric features—creating a path toward <strong>multi-output feedback control with minimal sensing inputs</strong>.
         </p>
-        <p>
-          The broader goal is to reduce sensing complexity while still enabling meaningful process awareness and control in wire arc additive manufacturing (WAAM). By turning one imaging system into a rich source of thermal information, this work supports defect mitigation, improved mechanical performance, and more practical closed-loop implementation in industrial environments.
-        </p>
-      </div>
-
-      <div class="work__boxes">
-
-        <!-- 0. Preface -->
-        <div class="work__box">
-          <div class="work__text">
-            <h3>0. Preface</h3>
-            <p>
-              This thesis is motivated by the need for practical, in-situ monitoring methods in welding-based metal additive manufacturing. It frames thermal imaging not just as a measurement tool, but as a scalable input for process understanding and future closed-loop control.
-            </p>
-          </div>
-          <div class="work__image-box">
-            <img class="work__image" src="./images/preface.png" alt="Overview of doctoral thesis research" />
-          </div>
-        </div>
-
-        <!-- 1. Introduction -->
-        <div class="work__box">
-          <div class="work__image-box">
-            <img class="work__image" src="./images/gmaw_schematic_dark.png" alt="Wire Arc Additive Manufacturing setup" />
-          </div>
-          <div class="work__text">
-            <h3>1. Introduction to Wire Arc Additive Manufacturing</h3>
-            <p>
-              This chapter introduces WAAM as a large-scale metal additive manufacturing process and establishes the importance of thermal history in governing melt pool behavior, solidification, microstructure, and resulting mechanical properties.
-            </p>
-          </div>
-        </div>
-
-        <!-- 2. Camera optimization -->
-        <div class="work__box">
-          <div class="work__text">
-            <h3>2. Optimizing Camera Parameters for Two-Color Thermography</h3>
-            <p>
-              This chapter develops the experimental framework needed for reliable two-color measurements with a commercial color camera, including calibration, exposure selection, and strategies to reduce arc and plasma interference during welding.
-            </p>
-          </div>
-          <div class="work__image-box">
-            <img class="work__image" src="./images/ArcRemoval.png" alt="Camera calibration and thermography setup" />
-          </div>
-        </div>
-
-        <!-- 3. L-59 steel -->
-        <div class="work__box">
-          <div class="work__image-box">
-            <video class="work__video" autoplay muted loop playsinline>
-              <source src="./images/CMU-WAAM-project.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="work__text">
-            <h3>3. Two-Color Thermography of L-59 Low-Carbon Steel</h3>
-            <p>
-              This work demonstrates that two-color thermography can recover meaningful thermal metrics during gas metal arc welding of low-carbon steel. These measurements are then linked to cooling behavior and hardness, showing how one sensing input can produce multiple outputs relevant to process monitoring.
-            </p>
-          </div>
-        </div>
-
-        <!-- 4. Alloy 718 -->
-        <div class="work__box">
-          <div class="work__text">
-            <h3>4. Two-Color Thermography of Cold-Metal Transfer Alloy 718</h3>
-            <p>
-              This chapter extends the framework to multi-layer Alloy 718 WAAM builds, where interlayer dwell time, thermal accumulation, cooling rate, and melt pool evolution are studied together. The goal is to better understand how thermography can support process control in more complex deposition conditions.
-            </p>
-          </div>
-          <div class="work__image-box">
-            <video class="work__video" autoplay muted loop playsinline>
-              <source src="./images/NASA-experiments.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- 5. Multispectral -->
-        <div class="work__box">
-          <div class="work__image-box">
-            <img class="work__image" src="./images/Jai_schematic-response.png" alt="Multi-spectral thermography for aluminum alloy welding" />
-          </div>
-          <div class="work__text">
-            <h3>5. Multi-Spectral Thermography for Aluminum Alloy Welding</h3>
-            <p>
-              The final chapter explores broader multi-spectral imaging approaches for aluminum alloy welding, where optical behavior can be more challenging. This work investigates how richer spectral measurements may further expand the number of process outputs available from a compact sensing setup.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Button at bottom -->
-      <div style="text-align: center; margin-top: 3rem;">
-        <a href="./files/Gala-Solis_Thesis-Proposal.pdf" class="btn" target="_blank" rel="noopener noreferrer">
-          View Full Thesis Proposal
-        </a>
       </div>
     </div>
   </section>
-</main> 
 
-  <!-- ***** Footer ***** -->
+  <main>
+    <!-- ***** Doctoral Thesis Section ***** -->
+    <section class="work" id="work">
+      <div class="row">
+        <h2>Doctoral Thesis</h2>
+
+        <div class="work__text" style="max-width: 900px; margin: 0 auto 3.5rem auto; text-align: left;">
+          <p>
+            My doctoral research explores how <strong>two-color thermography</strong> can be used as a scalable sensing framework for metal additive manufacturing. Rather than relying on extensive instrumentation, this approach uses a single commercial camera to extract multiple process outputs of interest—such as melt pool temperature, cooling rate, thermal gradients, and geometric features—creating a path toward <strong>multi-output feedback control with minimal sensing inputs</strong>.
+          </p>
+          <p>
+            The broader goal is to reduce sensing complexity while still enabling meaningful process awareness and control in wire arc additive manufacturing (WAAM). By turning one imaging system into a rich source of thermal information, this work supports defect mitigation, improved mechanical performance, and more practical closed-loop implementation in industrial environments.
+          </p>
+        </div>
+
+        <div class="work__boxes">
+
+          <div class="work__box">
+            <div class="work__text">
+              <h3>0. Preface</h3>
+              <p>
+                This thesis is motivated by the need for practical, in-situ monitoring methods in welding-based metal additive manufacturing. It frames thermal imaging not just as a measurement tool, but as a scalable input for process understanding and future closed-loop control.
+              </p>
+            </div>
+            <div class="work__image-box">
+              <img class="work__image" src="./images/preface.png" alt="Overview of doctoral thesis research" />
+            </div>
+          </div>
+
+          <div class="work__box">
+            <div class="work__image-box">
+              <img class="work__image" src="./images/gmaw_schematic_dark.png" alt="Wire Arc Additive Manufacturing setup" />
+            </div>
+            <div class="work__text">
+              <h3>1. Introduction to Wire Arc Additive Manufacturing</h3>
+              <p>
+                This chapter introduces WAAM as a large-scale metal additive manufacturing process and establishes the importance of thermal history in governing melt pool behavior, solidification, microstructure, and resulting mechanical properties.
+              </p>
+            </div>
+          </div>
+
+          <div class="work__box">
+            <div class="work__text">
+              <h3>2. Optimizing Camera Parameters for Two-Color Thermography</h3>
+              <p>
+                This chapter develops the experimental framework needed for reliable two-color measurements with a commercial color camera, including calibration, exposure selection, and strategies to reduce arc and plasma interference during welding.
+              </p>
+            </div>
+            <div class="work__image-box">
+              <img class="work__image" src="./images/ArcRemoval.png" alt="Camera calibration and thermography setup" />
+            </div>
+          </div>
+
+          <div class="work__box">
+            <div class="work__image-box">
+              <video class="work__video" autoplay muted loop playsinline>
+                <source src="./images/CMU-WAAM-project.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="work__text">
+              <h3>3. Two-Color Thermography of L-59 Low-Carbon Steel</h3>
+              <p>
+                This work demonstrates that two-color thermography can recover meaningful thermal metrics during gas metal arc welding of low-carbon steel. These measurements are then linked to cooling behavior and hardness, showing how one sensing input can produce multiple outputs relevant to process monitoring.
+              </p>
+            </div>
+          </div>
+
+          <div class="work__box">
+            <div class="work__text">
+              <h3>4. Two-Color Thermography of Cold-Metal Transfer Alloy 718</h3>
+              <p>
+                This chapter extends the framework to multi-layer Alloy 718 WAAM builds, where interlayer dwell time, thermal accumulation, cooling rate, and melt pool evolution are studied together. The goal is to better understand how thermography can support process control in more complex deposition conditions.
+              </p>
+            </div>
+            <div class="work__image-box">
+              <video class="work__video" autoplay muted loop playsinline>
+                <source src="./images/NASA-experiments.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <div class="work__box">
+            <div class="work__image-box">
+              <img class="work__image" src="./images/Jai_schematic-response.png" alt="Multi-spectral thermography for aluminum alloy welding" />
+            </div>
+            <div class="work__text">
+              <h3>5. Multi-Spectral Thermography for Aluminum Alloy Welding</h3>
+              <p>
+                The final chapter explores broader multi-spectral imaging approaches for aluminum alloy welding, where optical behavior can be more challenging. This work investigates how richer spectral measurements may further expand the number of process outputs available from a compact sensing setup.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="./files/Gala-Solis_Thesis-Proposal.pdf" class="btn" target="_blank" rel="noopener noreferrer">
+            View Full Thesis Proposal
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="footer">
     <div class="row">
       <p>
@@ -145,5 +153,6 @@
       </p>
     </div>
   </footer>
+
 </body>
 </html>
