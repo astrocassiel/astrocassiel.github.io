@@ -399,6 +399,93 @@ body:not(.user-is-tabbing) a:focus {
     background: var(--pink);
 }
 
+
+/* --------------------------------------- */
+/* ----- Homepage Landing ----- */
+/* --------------------------------------- */
+
+.home-landing {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(rgba(0,0,0, .35), rgba(0,0,0, .55)),
+        url('./images/gala-header.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    padding: 8rem 0;
+}
+
+.home-landing__content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.home-landing__title {
+    font-size: clamp(4.2rem, 7vw, 8rem);
+    line-height: 1;
+    margin-bottom: 2rem;
+    color: var(--white);
+}
+
+.home-landing__subtitle {
+    max-width: 700px;
+    margin: 0 auto 4rem auto;
+    font-family: 'Jost', sans-serif;
+    font-size: var(--font-size-medium);
+    color: var(--white-1);
+}
+
+.home-landing__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.6rem;
+    margin-top: 3rem;
+}
+
+.home-pill {
+    display: inline-block;
+    padding: 1.2rem 2.8rem;
+    border: 1px solid var(--pink);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--white);
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Jost', sans-serif;
+    font-size: 1.6rem;
+    transition: all 0.25s ease;
+}
+
+.home-pill:hover,
+.home-pill:focus {
+    background: var(--pink);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+@media(max-width: 600px) {
+    .home-landing {
+        padding: 6rem 0;
+        background-attachment: scroll;
+    }
+
+    .home-landing__buttons {
+        gap: 1.2rem;
+    }
+
+    .home-pill {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
 /* --------------------------------------- */
 /* ----- Header ----- */
 /* --------------------------------------- */
