@@ -875,7 +875,63 @@ body:not(.user-is-tabbing) a:focus {
     background-color: #fff;
     color: #111;
 }
+/* --------------------------------------- */
+/* ----- Highlight Cards ----- */
+/* --------------------------------------- */
 
+.toc__tile--text{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    min-height:220px;
+    padding:3rem;
+    text-align:left;
+
+    background:rgba(255,255,255,0.02);
+    border:var(--border-light);
+    border-radius:10px;
+
+    position:relative;
+    transition:all .25s ease;
+}
+
+/* pink accent line */
+.toc__tile--text::before{
+    content:'';
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:4px;
+    background:var(--pink);
+    opacity:.8;
+}
+
+/* hover animation */
+.toc__tile--text:hover{
+    transform:translateY(-6px);
+    border-color:var(--pink);
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+/* title */
+.toc__tile--text .toc__label{
+    padding:0;
+    margin-bottom:1.2rem;
+    font-size:2rem;
+    font-weight:600;
+    background:transparent;
+    color:var(--white);
+}
+
+/* description */
+.toc__description{
+    margin:0;
+    font-size:1.5rem;
+    line-height:1.6;
+    color:var(--white-1);
+    max-width:100%;
+}
 /* --------------------------------------- */
 /* ----- Projects Grid ----- */
 /* --------------------------------------- */
