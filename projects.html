@@ -1,152 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects | Gala Cassiel Solis</title>
-  <link rel="stylesheet" href="index.css" />
-</head>
+<main>
+<section class="projects">
+  <div class="row">
 
-<body>
+    <h2>Selected Projects</h2>
 
-  <!-- ***** Subpage Navigation Header ***** -->
-  <header class="header header--subpage" role="banner" id="top">
-    <div class="row">
-      <nav class="nav" role="navigation">
-        <ul class="nav__items">
-          <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
-          <li class="nav__item"><a href="phd-research.html" class="nav__link">PhD Thesis</a></li>
-          <li class="nav__item"><a href="internships.html" class="nav__link">Work Experience</a></li>
-          <li class="nav__item"><a href="projects.html" class="nav__link">Projects</a></li>
-          <!-- <li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li> -->
-          <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <div class="projects__grid">
 
-  <!-- ***** Subpage Intro ***** -->
-  <section class="subpage-hero">
-    <div class="row">
-      <div class="subpage-hero__content">
-        <h1 class="subpage-hero__title">Projects</h1>
-        <p class="subpage-hero__text">
-          A collection of technical and creative projects spanning thermal imaging, data processing, simulation, and design.
+      <div class="project-card">
+        <h3>Two-Color Thermography Simulation Tool</h3>
+        <p>
+          A modeling framework used to study two-color thermography performance under varying spectral bands, emissivity behavior, and experimental conditions.
         </p>
+        <ul>
+          <li>MATLAB / Julia</li>
+          <li>Thermal radiation modeling</li>
+          <li>Sensor optimization</li>
+        </ul>
       </div>
-    </div>
-  </section>
 
-  <main>
-    <section class="work">
-      <div class="row">
-        <h2>Selected Projects</h2>
-
-        <div class="work__boxes">
-
-          <div class="work__box">
-            <div class="work__text">
-              <h3>Two-Color Thermography Simulation Tool</h3>
-              <p>
-                A modeling and analysis tool developed to study two-color thermography performance under varying spectral bands, emissivity behavior, and experimental conditions. This project helped evaluate how optical choices influence temperature sensitivity and measurement robustness.
-              </p>
-              <ul class="work__list">
-                <li>MATLAB / Julia</li>
-                <li>Thermal radiation modeling</li>
-                <li>Sensor and filter optimization</li>
-              </ul>
-            </div>
-
-            <div class="work__image-box">
-              <img src="./images/project-placeholder.jpg" class="work__image" alt="Two-color thermography simulation tool" />
-            </div>
-          </div>
-
-          <div class="work__box">
-            <div class="work__text">
-              <h3>WAAM Thermal Data Visualization Pipeline</h3>
-              <p>
-                A data processing and visualization workflow built to analyze wire arc additive manufacturing experiments. The pipeline organizes thermal history, melt pool geometry, cooling rates, and mechanical property data into publication-ready plots and comparative figures.
-              </p>
-              <ul class="work__list">
-                <li>MATLAB / Python</li>
-                <li>Thermal + hardness data analysis</li>
-                <li>Automated plotting workflows</li>
-              </ul>
-            </div>
-
-            <div class="work__image-box">
-              <img src="./images/project-placeholder.jpg" class="work__image" alt="WAAM thermal data visualization pipeline" />
-            </div>
-          </div>
-
-          <div class="work__box">
-            <div class="work__text">
-              <h3>Custom Dual-Sensor Camera Processing Scripts</h3>
-              <p>
-                A set of scripts created to process visible and near-infrared data from dual-sensor imaging systems. The workflow supports frame import, channel extraction, ratio calculations, calibration analysis, and preparation of stitched datasets for temperature-related studies.
-              </p>
-              <ul class="work__list">
-                <li>Python / MATLAB</li>
-                <li>RGB + NIR processing</li>
-                <li>Calibration and ratio analysis</li>
-              </ul>
-            </div>
-
-            <div class="work__image-box">
-              <img src="./images/project-placeholder.jpg" class="work__image" alt="Custom dual-sensor camera processing scripts" />
-            </div>
-          </div>
-
-          <div class="work__box">
-            <div class="work__text">
-              <h3>3D Printed Art and Functional Design Pieces</h3>
-              <p>
-                A growing collection of personal fabrication projects that combine aesthetics with practical design. These include decorative prints, small functional objects, and concept pieces created through CAD modeling and iterative prototyping.
-              </p>
-              <ul class="work__list">
-                <li>CAD and 3D printing</li>
-                <li>Rapid prototyping</li>
-                <li>Creative fabrication</li>
-              </ul>
-            </div>
-
-            <div class="work__image-box">
-              <img src="./images/project-placeholder.jpg" class="work__image" alt="3D printed art and functional design pieces" />
-            </div>
-          </div>
-
-          <div class="work__box">
-            <div class="work__text">
-              <h3>Experimental Imaging and Calibration Setups</h3>
-              <p>
-                A series of custom experimental setups built for thermal imaging, camera calibration, and signal validation. These projects involved practical optical alignment, exposure studies, spectral considerations, and custom workflows for extracting reliable measurements in harsh environments.
-              </p>
-              <ul class="work__list">
-                <li>Optical experimentation</li>
-                <li>Camera calibration</li>
-                <li>Measurement validation</li>
-              </ul>
-            </div>
-
-            <div class="work__image-box">
-              <img src="./images/project-placeholder.jpg" class="work__image" alt="Experimental imaging and calibration setups" />
-            </div>
-          </div>
-
-        </div>
+      <div class="project-card">
+        <h3>WAAM Thermal Data Visualization Pipeline</h3>
+        <p>
+          A workflow for analyzing WAAM experiments, combining melt pool geometry,
+          cooling rates, and hardness measurements into automated publication-ready plots.
+        </p>
+        <ul>
+          <li>MATLAB / Python</li>
+          <li>Thermal + mechanical data analysis</li>
+          <li>Automated plotting tools</li>
+        </ul>
       </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="row">
-      <p>
-        <a href="index.html">← Back to main page</a><br>
-        &copy; 2025 Gala Cassiel Solis
-      </p>
+      <div class="project-card">
+        <h3>Dual-Sensor Camera Processing Scripts</h3>
+        <p>
+          Custom scripts developed to process visible and near-infrared channels
+          from dual-sensor cameras for thermal monitoring experiments.
+        </p>
+        <ul>
+          <li>Python / MATLAB</li>
+          <li>RGB + NIR processing</li>
+          <li>Calibration workflows</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>3D Printed Art & Functional Designs</h3>
+        <p>
+          Personal fabrication projects combining aesthetic design and functional
+          engineering through CAD modeling and additive manufacturing.
+        </p>
+        <ul>
+          <li>CAD design</li>
+          <li>Rapid prototyping</li>
+          <li>3D printing</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <h3>Experimental Imaging & Calibration Setups</h3>
+        <p>
+          Custom thermal imaging setups built to study camera calibration,
+          exposure optimization, and measurement reliability in welding environments.
+        </p>
+        <ul>
+          <li>Optical experiments</li>
+          <li>Thermal imaging</li>
+          <li>Measurement validation</li>
+        </ul>
+      </div>
+
     </div>
-  </footer>
 
-</body>
-</html>
+  </div>
+</section>
+</main>
