@@ -829,53 +829,6 @@ body:not(.user-is-tabbing) a:focus {
     object-fit: cover;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
-/* --------------------------------------- */
-/* ----- Projects Grid ----- */
-/* --------------------------------------- */
-
-.projects__grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 3rem;
-    margin-top: 3rem;
-}
-
-.project-card {
-    border: var(--border-light);
-    padding: 3rem;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.02);
-    transition: all 0.25s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--pink);
-}
-
-.project-card h3 {
-    margin-bottom: 1.5rem;
-}
-
-.project-card p {
-    max-width: 100%;
-    margin-bottom: 1.5rem;
-}
-
-.project-card ul {
-    list-style-position: inside;
-    margin-top: 1rem;
-}
-
-.project-card li:not(:last-child) {
-    margin-bottom: 0.6rem;
-}
-
-@media (max-width: 900px) {
-    .projects__grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* --------------------------------------- */
 /* ----- Table of Contents Section ----- */
@@ -921,4 +874,52 @@ body:not(.user-is-tabbing) a:focus {
     font-weight: 600;
     background-color: #fff;
     color: #111;
+}
+
+/* --------------------------------------- */
+/* ----- Projects Grid ----- */
+/* --------------------------------------- */
+
+.projects__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    border: 1px solid rgb(36, 35, 35);
+    padding: 3rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--pink);
+}
+
+.project-card h3 {
+    margin-bottom: 1.5rem;
+}
+
+.project-card p {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.project-card ul {
+    list-style-position: inside;
+    margin-top: 1rem;
+}
+
+.project-card li:not(:last-child) {
+    margin-bottom: 0.6rem;
+}
+
+@media (max-width: 900px) {
+    .projects__grid {
+        grid-template-columns: 1fr;
+    }
 }
