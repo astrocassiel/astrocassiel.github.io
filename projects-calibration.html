@@ -1,1 +1,187 @@
-#projects-calibration
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calibration & Validation for 2CT | Gala Cassiel Solis</title>
+  <link rel="stylesheet" href="./index.css?v=3" />
+</head>
+
+<body>
+
+  <header class="header header--subpage" role="banner" id="top">
+    <div class="row">
+      <nav class="nav" role="navigation">
+        <ul class="nav__items">
+          <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="phd-research.html" class="nav__link">PhD Thesis</a></li>
+          <li class="nav__item"><a href="internships.html" class="nav__link">Work Experience</a></li>
+          <li class="nav__item"><a href="projects.html" class="nav__link">Projects</a></li>
+          <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="subpage-hero">
+    <div class="row">
+      <div class="subpage-hero__content">
+        <h1 class="subpage-hero__title">Calibration & Imaging Workflows</h1>
+        <p class="subpage-hero__text">
+          Experimental and computational workflows for thermal imaging calibration, dual-sensor processing, and measurement reliability in high-temperature manufacturing environments.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="project-detail">
+      <div class="row">
+
+        <div class="project-detail__block">
+          <h2>Overview</h2>
+          <p>
+            This work focuses on building reliable calibration and imaging workflows for thermal measurements in metal additive manufacturing and welding environments. The project combines experimental setup design, camera characterization, signal processing, and validation methods to improve confidence in measured temperatures and image-based metrics.
+          </p>
+          <p>
+            The broader goal is to make high-speed thermal imaging more usable for extracting physically meaningful data such as temperature trends, cooling behavior, melt pool geometry, and signal ratios across visible and near-infrared channels.
+          </p>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>What this included</h2>
+          <ul>
+            <li>Dual-sensor visible + NIR camera processing workflows</li>
+            <li>Camera response and exposure studies</li>
+            <li>Tungsten-filament and reference-source calibration methods</li>
+            <li>Signal-ratio analysis for temperature-sensitive channels</li>
+            <li>ROI-based image extraction and frame processing</li>
+            <li>Validation of measurement consistency under changing optical conditions</li>
+          </ul>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>General workflow</h2>
+          <ol>
+            <li>Acquire raw image data from visible and/or NIR channels.</li>
+            <li>Convert sensor output into usable channel-separated image arrays.</li>
+            <li>Select regions of interest for calibration or experimental analysis.</li>
+            <li>Measure channel intensities under controlled thermal conditions.</li>
+            <li>Build calibration relationships between signal, ratio, and temperature.</li>
+            <li>Apply the calibrated workflow to experimental weld or AM images.</li>
+            <li>Evaluate uncertainty, repeatability, and sensitivity to optics or exposure settings.</li>
+          </ol>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>Core ideas</h2>
+          <p>
+            A major challenge in thermal imaging is that measured pixel intensity depends not only on temperature, but also on spectral sensitivity, exposure time, optics, and material emissivity. Calibration workflows help separate those effects and build a more trustworthy relationship between measured signal and actual thermal behavior.
+          </p>
+          <p>
+            For dual-sensor and multi-channel systems, signal ratios such as visible-to-NIR or red-to-green can also be used to improve robustness and reduce sensitivity to some experimental uncertainties.
+          </p>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>Representative equations</h2>
+
+          <div class="equation-block">
+            <p>
+              <strong>Planck-based spectral emission</strong><br>
+              \( E_{\lambda,b}(\lambda,T) =
+              \frac{c_1}{\lambda^5\left[\exp\left(\frac{c_2}{\lambda T}\right)-1\right]} \)
+            </p>
+          </div>
+
+          <div class="equation-block">
+            <p>
+              <strong>Measured channel signal</strong><br>
+              \( S_i(T_i,\Delta t) =
+              C_i \Delta t \int_{\lambda}
+              E_{\lambda,b}(\lambda,T_i)\,
+              w_i(\lambda)\,
+              \tau(\lambda)\,
+              \epsilon_i(\lambda,T_i)\, d\lambda \)
+            </p>
+          </div>
+
+          <div class="equation-block">
+            <p>
+              <strong>Signal ratio example</strong><br>
+              \( r_{1/2}(T_i)=\frac{S_{i,1}}{S_{i,2}} \)
+            </p>
+          </div>
+
+          <p>
+            In practice, these relationships are used to connect measured image intensity or channel ratios to known thermal reference conditions, then applied to experimental datasets.
+          </p>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>Tools and methods</h2>
+          <ul>
+            <li>MATLAB and Python for image processing and calibration analysis</li>
+            <li>Visible and near-infrared channel extraction</li>
+            <li>ROI-based intensity tracking</li>
+            <li>Temperature-dependent ratio analysis</li>
+            <li>Experimental optical setup design</li>
+            <li>High-speed thermal imaging in welding environments</li>
+          </ul>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>Figures</h2>
+
+          <figure class="project-figure">
+            <img src="images/calibration/jai_camera_response.png" alt="JAI camera schematic and spectral response">
+            <figcaption>
+              Example camera schematic and spectral sensitivity used to interpret visible and near-infrared channel behavior.
+            </figcaption>
+          </figure>
+
+          <figure class="project-figure">
+            <img src="images/calibration/calibration_uncertainty.png" alt="Calibration uncertainty plot">
+            <figcaption>
+              Example calibration curve with uncertainty bounds used to assess temperature reconstruction confidence.
+            </figcaption>
+          </figure>
+
+          <figure class="project-figure">
+            <img src="images/calibration/dual_sensor_workflow.png" alt="Dual-sensor processing workflow">
+            <figcaption>
+              Example processing workflow for extracting and comparing visible and NIR channel data from dual-sensor images.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>Outcome</h2>
+          <p>
+            These workflows helped establish a repeatable path from raw camera data to calibrated thermal metrics. They also supported later work in two-color thermography, dual-sensor imaging, and automated analysis of additive manufacturing experiments.
+          </p>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>My role</h2>
+          <p>
+            I designed and implemented calibration workflows, processed imaging datasets, evaluated signal behavior across camera channels, and connected the measurements back to high-temperature manufacturing experiments.
+          </p>
+        </div>
+
+        <div class="project-detail__block">
+          <p><a href="projects.html">← Back to Projects</a></p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="row">
+      <p>&copy; 2025 Gala Cassiel Solis</p>
+    </div>
+  </footer>
+
+</body>
+</html>
