@@ -1,1 +1,232 @@
-#projects-optimization
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Optimization Project | Gala Cassiel Solis</title>
+  <link rel="stylesheet" href="./index.css?v=3" />
+
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+
+<body>
+
+  <header class="header header--subpage" role="banner" id="top">
+    <div class="row">
+      <nav class="nav" role="navigation">
+        <ul class="nav__items">
+          <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href="phd-research.html" class="nav__link">PhD Thesis</a></li>
+          <li class="nav__item"><a href="internships.html" class="nav__link">Work Experience</a></li>
+          <li class="nav__item"><a href="projects.html" class="nav__link">Projects</a></li>
+          <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="subpage-hero">
+    <div class="row">
+      <div class="subpage-hero__content">
+        <h1 class="subpage-hero__title">Two-Color Thermography Optimization</h1>
+        <p class="subpage-hero__text">
+          A synthetic modeling and optimization framework for selecting channel pairs and optical filters that improve two-color temperature measurements before physical experiments are performed.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="project-detail">
+      <div class="row">
+
+        <div class="project-detail__block">
+          <h2>Overview</h2>
+          <p>
+            This project explored how to optimize a two-color thermography setup for high-temperature manufacturing applications such as wire-arc additive manufacturing. Instead of relying on repeated trial-and-error experiments, we built a synthetic framework that generates temperature fields, predicts the camera response, reconstructs temperature using the two-color method, and minimizes error between the reconstructed and true fields.
+          </p>
+          <p>
+            The goal was to determine which channel combinations and filter wavelength ranges provide the most accurate temperature predictions under realistic emissivity behavior and thermal gradients.
+          </p>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>Why it matters</h2>
+          <p>
+            Two-color thermography is attractive because it reduces sensitivity to emissivity compared to single-band thermal measurements. However, accuracy still depends strongly on the camera spectral response, selected wavelength bands, and the temperature distribution being measured. This project provides a way to evaluate those design choices computationally before committing to hardware or experiments.
+          </p>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>General workflow</h2>
+          <ol>
+            <li>Generate a synthetic ground-truth temperature field.</li>
+            <li>Compute the emitted spectral radiation using Planck’s law.</li>
+            <li>Pass that radiation through channel sensitivities and candidate optical filters.</li>
+            <li>Simulate the resulting pixel intensities for each sensor channel.</li>
+            <li>Apply the two-color ratio method to reconstruct temperature.</li>
+            <li>Compare reconstructed temperature to the true field using mean squared error.</li>
+            <li>Optimize the filter bounds and channel pair to minimize reconstruction error.</li>
+          </ol>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>Core equations</h2>
+          <p>
+            The framework starts from Planck’s law, which describes blackbody spectral emission as a function of wavelength and temperature:
+          </p>
+
+          <div class="equation-block">
+            <p>
+              <strong>Planck's law</strong><br>
+              \( E_{\lambda,b}(\lambda,T) =
+              \frac{c_1}{\lambda^5 \left[\exp\left(\frac{c_2}{\lambda T}\right)-1\right]} \)
+            </p>
+          </div>
+
+          <p>
+            The simulated signal measured by a channel is computed by integrating the emitted radiation over wavelength, weighted by spectral sensitivity, optical transmission, and emissivity:
+          </p>
+
+          <div class="equation-block">
+            <p>
+              <strong>Channel signal</strong><br>
+              \( S_i(T_i,\Delta t) =
+              C_i \Delta t \int_{\lambda}
+              E_{\lambda,b}(\lambda,T_i)\,
+              w_i(\lambda)\,
+              \tau(\lambda)\,
+              \epsilon_i(\lambda,T_i)\, d\lambda \)
+            </p>
+          </div>
+
+          <p>
+            The temperature reconstruction uses a ratio between two channels:
+          </p>
+
+          <div class="equation-block">
+            <p>
+              <strong>Two-color ratio</strong><br>
+              \( r_{c_1/c_2}(T_i)=
+              \frac{S_{i,c_1}(T_i,\Delta t)}{S_{i,c_2}(T_i,\Delta t)} \)
+            </p>
+          </div>
+
+          <p>
+            The optimization minimizes the mean squared error between the true and reconstructed temperature fields:
+          </p>
+
+          <div class="equation-block">
+            <p>
+              <strong>Objective function</strong><br>
+              \( \min_{\mathbf{x}}
+              \frac{1}{N}\sum_{i=1}^{N}
+              \left(T_{\mathrm{true},i}-T_{\mathrm{pred},i}(\mathbf{x})\right)^2 \)
+            </p>
+          </div>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>Temperature field models</h2>
+          <p>
+            To test the method, we used two levels of synthetic inputs. The first was a simple 1D temperature bar spanning a wide temperature range to isolate calibration behavior. The second used 2D temperature fields based on the Eagar–Tsai moving heat source model, which better represents the spatial gradients expected in welding and additive manufacturing.
+          </p>
+
+          <div class="equation-block">
+            <p>
+              <strong>Eagar–Tsai model</strong><br>
+              \( T - T_0 =
+              \frac{q}{2\pi k R}
+              \exp\left(-\frac{v(x-vt)+R}{2a}\right) \)
+            </p>
+          </div>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>Figures</h2>
+
+          <figure class="project-figure">
+            <img src="images/optimization/workflow.png" alt="Optimization workflow diagram">
+            <figcaption>
+              Optimization workflow used to generate synthetic images, reconstruct temperature, and minimize error.
+            </figcaption>
+          </figure>
+
+          <figure class="project-figure">
+            <img src="images/optimization/PlanckDistributioin.png" alt="Planck distribution plot">
+            <figcaption>
+              Planck distribution illustrating the wavelength-dependent thermal radiation used as the basis for the forward model.
+            </figcaption>
+          </figure>
+
+          <figure class="project-figure">
+            <img src="images/optimization/cbar_and_emissivity.png" alt="Color bar and emissivity test">
+            <figcaption>
+              1D color bar test and emissivity function used to evaluate two-color performance over a broad temperature range.
+            </figcaption>
+          </figure>
+
+          <figure class="project-figure">
+            <img src="images/optimization/eagar_tsai.png" alt="Eagar-Tsai temperature fields">
+            <figcaption>
+              Example 2D temperature fields generated using the Eagar–Tsai model for multiple engineering materials.
+            </figcaption>
+          </figure>
+
+          <figure class="project-figure">
+            <img src="images/optimization/channel_pairs.png" alt="Channel pair sensitivity study">
+            <figcaption>
+              Sensitivity of reconstruction error to the selected channel pair, showing that channel choice strongly affects performance.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>Key takeaways</h2>
+          <ul>
+            <li>Filter selection and channel pairing strongly influence two-color accuracy.</li>
+            <li>Synthetic modeling can guide experimental design before hardware testing.</li>
+            <li>Different temperature fields can favor different optimal channel/filter combinations.</li>
+            <li>The framework helps translate camera specifications into actionable design choices for thermal imaging experiments.</li>
+          </ul>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>My role</h2>
+          <p>
+            I contributed domain expertise in two-color thermography, additive manufacturing applications, synthetic image generation, and experimental framing of the problem.
+          </p>
+        </div>
+
+        <div class="project-detail__block">
+          <h2>Credits</h2>
+          <p>
+            This project was completed collaboratively by <strong>Gala Solis</strong>, <strong>Ethan Meitz</strong>, and <strong>Eddie Beck</strong>.
+          </p>
+          <p>
+            Gala contributed domain knowledge, synthetic image generation, and camera/material inputs. Ethan developed the two-color implementation and optimization framework. Eddie generated synthetic temperature fields and supported the sensitivity analysis. All three contributed to the project concept, formulation, and interpretation of results.
+          </p>
+        </div>
+
+        <div class="project-detail__block">
+          <p><a href="projects.html">← Back to Projects</a></p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="row">
+      <p>&copy; 2025 Gala Cassiel Solis</p>
+    </div>
+  </footer>
+
+</body>
+</html>
