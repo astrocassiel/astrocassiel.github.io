@@ -3,16 +3,16 @@
 /* --------------------------------------- */
 
 .portfolio-page section {
-    padding: 5rem 0;
+    padding: 3.8rem 0;
 }
 
 .portfolio-page .subpage-hero {
-    padding: 4.5rem 0 3.5rem 0;
+    padding: 3.5rem 0 2.5rem 0;
 }
 
 .portfolio-page .subpage-hero__title {
-    font-size: 4.4rem;
-    margin-bottom: 1.2rem;
+    font-size: 4.2rem;
+    margin-bottom: 1rem;
 }
 
 .portfolio-page .subpage-hero__text {
@@ -21,26 +21,67 @@
 }
 
 .portfolio-page h2 {
-    margin-bottom: 3rem;
+    margin-bottom: 2.2rem;
 }
 
 .portfolio-page h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .portfolio-page p {
-    margin: 1rem 0;
+    margin: 0.8rem 0;
     max-width: 100%;
 }
 
+.portfolio-page .portfolio-note {
+    padding: 1.6rem 0 0.8rem 0;
+    border-bottom: none;
+}
+
+.portfolio-page .portfolio-note p {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--white-1);
+    opacity: 0.95;
+}
+
+.portfolio-page .portfolio-text-block {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.portfolio-page .portfolio-education-item:not(:last-child) {
+    margin-bottom: 1.6rem;
+}
+
+.portfolio-page .research-overview {
+    padding: 3rem 0 3.5rem 0;
+}
+
+.portfolio-page .research-overview__image {
+    width: min(1200px, calc(100vw - 4rem));
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.portfolio-page .research-areas__grid {
+    gap: 0.8rem;
+}
+
+.portfolio-page .research-area__tag {
+    font-size: 1.3rem;
+    padding: 0.7rem 1.2rem;
+}
+
 .portfolio-page .work__boxes {
-    gap: 2.5rem;
+    gap: 1.8rem;
 }
 
 .portfolio-page .work__box {
-    padding: 2.4rem;
-    gap: 3rem;
-    border-radius: 10px;
+    padding: 2rem;
+    gap: 2.4rem;
+    border-radius: 8px;
     box-shadow: none;
 }
 
@@ -57,16 +98,16 @@
 }
 
 .portfolio-page .work__list li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem;
 }
 
 .portfolio-page .projects__grid {
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1.6rem;
+    margin-top: 1.5rem;
 }
 
 .portfolio-page .project-card {
-    padding: 2.2rem;
+    padding: 2rem;
     box-shadow: none;
 }
 
@@ -74,41 +115,16 @@
     transform: none;
 }
 
-.portfolio-page .research-overview {
-    padding: 4rem 0 4rem 0;
-}
-
-.portfolio-page .research-overview__image {
-    width: min(1200px, calc(100vw - 5rem));
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.portfolio-page .research-areas__grid {
-    gap: 0.8rem;
-}
-
-.portfolio-page .research-area__tag {
-    font-size: 1.35rem;
-    padding: 0.7rem 1.2rem;
-}
-
 .portfolio-page .footer {
-    padding-top: 3rem;
+    padding-top: 2rem;
 }
 
-.portfolio-page .portfolio-section {
+.portfolio-page .portfolio-section,
+.portfolio-page .work__box,
+.portfolio-page .project-card,
+.portfolio-page .portfolio-education-item {
+    break-inside: avoid;
     page-break-inside: avoid;
-}
-
-.portfolio-page .portfolio-text-block {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.portfolio-page .portfolio-education-item:not(:last-child) {
-    margin-bottom: 2rem;
 }
 
 /* --------------------------------------- */
@@ -119,26 +135,52 @@
     .portfolio-page {
         background: white !important;
         color: black !important;
+        font-size: 11pt;
+        line-height: 1.35;
     }
 
     .portfolio-page * {
         box-shadow: none !important;
         text-shadow: none !important;
+        background-image: none !important;
     }
 
     .portfolio-page .header--subpage,
     .portfolio-page .footer {
-        display: none;
+        display: none !important;
     }
 
     .portfolio-page .subpage-hero {
-        padding-top: 0;
-        border-bottom: 1px solid #ccc;
+        padding: 0 0 1.2rem 0 !important;
+        border-bottom: 1px solid #bbb;
+        background: white !important;
+    }
+
+    .portfolio-page .subpage-hero__title {
+        font-size: 24pt !important;
+        color: black !important;
+        margin-bottom: 0.4rem !important;
+    }
+
+    .portfolio-page .subpage-hero__text {
+        font-size: 11pt !important;
+        color: black !important;
+        max-width: 100% !important;
+    }
+
+    .portfolio-page .portfolio-note {
+        padding: 0.5rem 0 1rem 0 !important;
+    }
+
+    .portfolio-page .portfolio-note p {
+        font-size: 9.5pt !important;
+        color: #333 !important;
+        text-align: left;
     }
 
     .portfolio-page section {
-        padding: 2.2rem 0;
-        border-bottom: none;
+        padding: 1.1rem 0 !important;
+        border-bottom: none !important;
     }
 
     .portfolio-page h1,
@@ -151,49 +193,95 @@
         color: black !important;
     }
 
+    .portfolio-page h2 {
+        font-size: 16pt !important;
+        margin-bottom: 0.8rem !important;
+    }
+
     .portfolio-page h2::after {
-        background: #999 !important;
+        width: 5rem !important;
+        margin: 0.5rem 0 !important;
+        background: #777 !important;
+    }
+
+    .portfolio-page h3 {
+        font-size: 12pt !important;
+        margin-bottom: 0.35rem !important;
+    }
+
+    .portfolio-page p {
+        margin: 0.3rem 0 !important;
+    }
+
+    .portfolio-page .research-overview {
+        padding-top: 0.8rem !important;
+        padding-bottom: 1.2rem !important;
+    }
+
+    .portfolio-page .research-overview__image {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0.8rem 0 1rem 0 !important;
+        transform: none !important;
+    }
+
+    .portfolio-page .research-areas__grid {
+        justify-content: flex-start !important;
+        gap: 0.35rem !important;
+    }
+
+    .portfolio-page .research-area__tag {
+        border: 1px solid #888 !important;
+        background: white !important;
+        font-size: 9pt !important;
+        padding: 0.25rem 0.55rem !important;
+    }
+
+    .portfolio-page .work__boxes {
+        gap: 0.9rem !important;
     }
 
     .portfolio-page .work__box,
     .portfolio-page .project-card {
-        border: 1px solid #ccc !important;
+        border: 1px solid #c9c9c9 !important;
         background: white !important;
-        break-inside: avoid;
-        page-break-inside: avoid;
-    }
-
-    .portfolio-page .research-area__tag {
-        border: 1px solid #999 !important;
-        background: white !important;
-    }
-
-    .portfolio-page .projects__grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .portfolio-page .work__boxes {
-        gap: 1.5rem;
+        padding: 0.8rem 1rem !important;
+        border-radius: 0 !important;
     }
 
     .portfolio-page .work__box {
-        padding: 1.5rem;
-        gap: 2rem;
+        gap: 1rem !important;
     }
 
-    .portfolio-page .research-overview__image,
-    .portfolio-page .work__image,
-    .portfolio-page video {
-        break-inside: avoid;
-        page-break-inside: avoid;
+    .portfolio-page .work__list {
+        margin-top: 0.35rem !important;
+    }
+
+    .portfolio-page .work__list li,
+    .portfolio-page .project-card li {
+        margin-bottom: 0.2rem !important;
+    }
+
+    .portfolio-page .projects__grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.8rem !important;
+        margin-top: 0.8rem !important;
+    }
+
+    .portfolio-page .project-card {
+        padding: 0.8rem !important;
+    }
+
+    .portfolio-page .project-card p {
+        margin-bottom: 0.4rem !important;
     }
 
     .portfolio-page a {
-        text-decoration: none;
+        text-decoration: none !important;
     }
 
     @page {
         size: letter;
-        margin: 0.5in;
+        margin: 0.45in;
     }
 }
