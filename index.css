@@ -1015,3 +1015,8 @@ body:not(.user-is-tabbing) a:focus {
         grid-template-columns: 1fr;
     }
 }
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
