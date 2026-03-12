@@ -1,1 +1,199 @@
+/* --------------------------------------- */
+/* ----- Portfolio-only overrides ----- */
+/* --------------------------------------- */
 
+.portfolio-page section {
+    padding: 5rem 0;
+}
+
+.portfolio-page .subpage-hero {
+    padding: 4.5rem 0 3.5rem 0;
+}
+
+.portfolio-page .subpage-hero__title {
+    font-size: 4.4rem;
+    margin-bottom: 1.2rem;
+}
+
+.portfolio-page .subpage-hero__text {
+    font-size: 1.7rem;
+    max-width: 1000px;
+}
+
+.portfolio-page h2 {
+    margin-bottom: 3rem;
+}
+
+.portfolio-page h3 {
+    margin-bottom: 1rem;
+}
+
+.portfolio-page p {
+    margin: 1rem 0;
+    max-width: 100%;
+}
+
+.portfolio-page .work__boxes {
+    gap: 2.5rem;
+}
+
+.portfolio-page .work__box {
+    padding: 2.4rem;
+    gap: 3rem;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+.portfolio-page .work__box:hover {
+    transform: none;
+}
+
+.portfolio-page .work__text {
+    max-width: 100%;
+}
+
+.portfolio-page .work__list {
+    margin-bottom: 0;
+}
+
+.portfolio-page .work__list li {
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-page .projects__grid {
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.portfolio-page .project-card {
+    padding: 2.2rem;
+    box-shadow: none;
+}
+
+.portfolio-page .project-card:hover {
+    transform: none;
+}
+
+.portfolio-page .research-overview {
+    padding: 4rem 0 4rem 0;
+}
+
+.portfolio-page .research-overview__image {
+    width: min(1200px, calc(100vw - 5rem));
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.portfolio-page .research-areas__grid {
+    gap: 0.8rem;
+}
+
+.portfolio-page .research-area__tag {
+    font-size: 1.35rem;
+    padding: 0.7rem 1.2rem;
+}
+
+.portfolio-page .footer {
+    padding-top: 3rem;
+}
+
+.portfolio-page .portfolio-section {
+    page-break-inside: avoid;
+}
+
+.portfolio-page .portfolio-text-block {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.portfolio-page .portfolio-education-item:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+/* --------------------------------------- */
+/* ----- Print styles for PDF ----- */
+/* --------------------------------------- */
+
+@media print {
+    .portfolio-page {
+        background: white !important;
+        color: black !important;
+    }
+
+    .portfolio-page * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    .portfolio-page .header--subpage,
+    .portfolio-page .footer {
+        display: none;
+    }
+
+    .portfolio-page .subpage-hero {
+        padding-top: 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .portfolio-page section {
+        padding: 2.2rem 0;
+        border-bottom: none;
+    }
+
+    .portfolio-page h1,
+    .portfolio-page h2,
+    .portfolio-page h3,
+    .portfolio-page p,
+    .portfolio-page li,
+    .portfolio-page a,
+    .portfolio-page .research-area__tag {
+        color: black !important;
+    }
+
+    .portfolio-page h2::after {
+        background: #999 !important;
+    }
+
+    .portfolio-page .work__box,
+    .portfolio-page .project-card {
+        border: 1px solid #ccc !important;
+        background: white !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .portfolio-page .research-area__tag {
+        border: 1px solid #999 !important;
+        background: white !important;
+    }
+
+    .portfolio-page .projects__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .portfolio-page .work__boxes {
+        gap: 1.5rem;
+    }
+
+    .portfolio-page .work__box {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .portfolio-page .research-overview__image,
+    .portfolio-page .work__image,
+    .portfolio-page video {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .portfolio-page a {
+        text-decoration: none;
+    }
+
+    @page {
+        size: letter;
+        margin: 0.5in;
+    }
+}
