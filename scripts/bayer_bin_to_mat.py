@@ -11,6 +11,43 @@ import numpy as np
 from scipy.io import savemat
 
 
+BAYER_PATTERN_ALIASES = {
+    "RG": "RGGB",
+    "RGGB": "RGGB",
+    "BG": "BGGR",
+    "BGGR": "BGGR",
+    "GR": "GRBG",
+    "GRBG": "GRBG",
+    "GB": "GBRG",
+    "GBRG": "GBRG",
+}
+
+
+def parse_filename_metadata(path: Path) -> dict[str, int | str | None]:
+    """Extract width, height, Bayer pattern, and bit depth from common filenames."""
+    stem = path.stem
+    width = height = bit_depth = None
+    pattern = None
+
+    size_match = re.search(r"_w(\d+)_h(\d+)(?:_|$)", stem, re.IGNORECASE)
+    if size_match:
+        width = int(size_match.group(1))
+        height = int(size_match.group(2))
+
+    bayer_match = re.search(r"_pBayer([A-Z]{2})(\d+)?", stem, re.IGNORECASE)
+    if bayer_match:
+        pattern = BAYER_PATTERN_ALIASES.get(bayer_match.group(1).upper())
+        if bayer_match.group(2):
+            bit_depth = int(bayer_match.group(2))
+
+    return {
+        "width": width,
+        "height": height,
+        "pattern": pattern,
+        "bit_depth": bit_depth,
+    }
+
+
 def infer_dimensions(num_pixels: int) -> tuple[int, int]:
     """Infer width/height from pixel count using common camera resolutions."""
     candidates: list[tuple[int, int]] = [
@@ -77,30 +114,56 @@ def sanitize_var_name(path: Path) -> str:
     return name
 
 
-def convert_folder(
-    input_dir: Path,
+def resolve_bin_files(input_paths: list[Path]) -> list[Path]:
+    """Expand folders and explicit .bin file paths into a sorted file list."""
+    bin_files: list[Path] = []
+    for path in input_paths:
+        resolved = path.resolve()
+        if resolved.is_dir():
+            bin_files.extend(sorted(resolved.glob("*.bin")))
+        elif resolved.is_file() and resolved.suffix.lower() == ".bin":
+            bin_files.append(resolved)
+        else:
+            raise FileNotFoundError(f"Not a .bin file or folder: {path}")
+
+    if not bin_files:
+        raise FileNotFoundError("No .bin files found.")
+
+    # Preserve order for explicit file lists; sort folders alphabetically.
+    if len(input_paths) == 1 and input_paths[0].resolve().is_dir():
+        return sorted(set(bin_files))
+    return list(dict.fromkeys(bin_files))
+
+
+def convert_files(
+    bin_files: list[Path],
     output_mat: Path,
     width: int | None,
     height: int | None,
     pattern: str,
 ) -> None:
-    bin_files = sorted(input_dir.glob("*.bin"))
-    if not bin_files:
-        raise FileNotFoundError(f"No .bin files found in {input_dir}")
-
     mat_data: dict[str, object] = {
         "bayer_pattern": pattern,
         "dtype": "uint16",
     }
 
     for index, bin_path in enumerate(bin_files, start=1):
-        image = load_bayer_bin(bin_path, width, height)
+        metadata = parse_filename_metadata(bin_path)
+        file_width = width or metadata["width"]
+        file_height = height or metadata["height"]
+        file_pattern = pattern or metadata["pattern"] or "RGGB"
+        if index == 1:
+            mat_data["bayer_pattern"] = file_pattern
+            if metadata["bit_depth"] is not None:
+                mat_data["bit_depth"] = metadata["bit_depth"]
+
+        image = load_bayer_bin(bin_path, file_width, file_height)
         var_name = sanitize_var_name(bin_path)
         mat_data[var_name] = image
         mat_data[f"{var_name}_filename"] = bin_path.name
         print(
             f"[{index}/{len(bin_files)}] {bin_path.name}: "
-            f"{image.shape[1]}x{image.shape[0]} uint16 Bayer"
+            f"{image.shape[1]}x{image.shape[0]} uint16 Bayer ({file_pattern})"
         )
 
     savemat(output_mat, mat_data, do_compression=True)
@@ -112,9 +175,10 @@ def parse_args() -> argparse.Namespace:
         description="Convert raw Bayer uint16 .bin files to a MATLAB .mat file."
     )
     parser.add_argument(
-        "input_dir",
+        "inputs",
+        nargs="+",
         type=Path,
-        help="Folder containing .bin files",
+        help="Folder containing .bin files and/or individual .bin file paths",
     )
     parser.add_argument(
         "-o",
@@ -137,26 +201,25 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--pattern",
-        default="RGGB",
+        default=None,
         choices=["RGGB", "BGGR", "GRBG", "GBRG"],
-        help="Bayer color filter arrangement (default: RGGB)",
+        help="Bayer color filter arrangement (default: parse from filename, else RGGB)",
     )
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    input_dir = args.input_dir.resolve()
-    output_mat = (
-        args.output.resolve()
-        if args.output
-        else input_dir / "bayer_images.mat"
+    bin_files = resolve_bin_files(args.inputs)
+    first_input = args.inputs[0].resolve()
+    default_output = (
+        first_input / "bayer_images.mat"
+        if first_input.is_dir()
+        else first_input.parent / "bayer_images.mat"
     )
+    output_mat = args.output.resolve() if args.output else default_output.resolve()
 
-    if not input_dir.is_dir():
-        raise SystemExit(f"Input folder does not exist: {input_dir}")
-
-    convert_folder(input_dir, output_mat, args.width, args.height, args.pattern)
+    convert_files(bin_files, output_mat, args.width, args.height, args.pattern)
 
 
 if __name__ == "__main__":
